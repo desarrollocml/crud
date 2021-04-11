@@ -10,11 +10,11 @@ const mongoose = require('mongoose');
 const app = express();
 
 //mongoose.set('useUnifiedTopology', true);
-
+app.set('urldb', process.env.DB_URL || 'mongodb://localhost/crud-mongo');
 // connection to db
 //process.env.DB_URL    useNewUrlParser: true 
 //mongoose.connect(process.env.DB_URL, {useNewUrlParser: true,useUnifiedTopology:true })
-mongoose.connect('mongodb+srv://administrador:cmlcml@cluster0.gat0g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
+mongoose.connect(app.get('urldb'),{ useNewUrlParser: true,useUnifiedTopology: true })
   .then(db => console.log('coneccion a base de datos'))
   .catch(err => console.log(err));
 
