@@ -3,8 +3,9 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 
-const puntoenv = require('dotenv').config({ path: '.env'});
-console.log('BASE ENV  '+ process.env.DB_URL);
+//const puntoenv = require('dotenv').config({ path: '.env'});
+//require('dotenv').config({ path: '.env'});
+//console.log('BASE ENV  '+ process.env.DB_URL);
 
 const app = express();
 
@@ -12,7 +13,8 @@ const app = express();
 
 // connection to db
 //process.env.DB_URL    useNewUrlParser: true 
-mongoose.connect(process.env.DB_URL, {useNewUrlParser: true,useUnifiedTopology:true })
+//mongoose.connect(process.env.DB_URL, {useNewUrlParser: true,useUnifiedTopology:true })
+mongoose.connect('mongodb+srv://administrador:cmlcml@cluster0.gat0g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{ useNewUrlParser: true,useUnifiedTopology: true })
   .then(db => console.log('coneccion a base de datos'))
   .catch(err => console.log(err));
 
